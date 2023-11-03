@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,11 +8,14 @@ public class GameManager : MonoBehaviour
         get { return instance; }
     }
 
-    public static bool isGrounded;
-    public static float jumpForce = 10f;
-    public static int playerLife = 3;
-    public static int score = 0;
+    public static bool isGrounded = true;
     public static bool isSliding = false;
+    public static float gameSpeed = 10f;
+    public static float jumpForce = 10f;
+    public static int jumpCnt = 0;
+    public static int playerLife = 99;
+    public static int score = 0;
+
     private void Awake()
     {
         if (instance == null)
@@ -27,13 +28,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject); // 이미 인스턴스가 존재하면 새로 생성된 오브젝트를 파괴
         }
     }
-
-    public void SetSlide(bool isSlide)
+    private void Update()
     {
-        isSliding = isSlide;
-
-        //여기다가 애니메이션 다 넣기.
+        if (GameManager.playerLife <= 0)
+        {
+            Time.timeScale = 0;
+            //GameManager.gameSpeed = 0f;
+        }
     }
-
 
 }

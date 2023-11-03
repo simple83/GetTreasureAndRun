@@ -13,8 +13,8 @@ public class CameraController : MonoBehaviour
     }
     void LateUpdate()
     {
-        Vector2 initialVelocity = new Vector2(PlayerController.initialSpeed, cameraRigidbody.velocity.y);
-        cameraRigidbody.velocity = initialVelocity;
+        //Vector2 initialVelocity = new Vector2(PlayerController.initialSpeed, cameraRigidbody.velocity.y);
+        //cameraRigidbody.velocity = initialVelocity;
     }
 }
 

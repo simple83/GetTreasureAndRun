@@ -10,6 +10,8 @@ public class CollisionHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             GameManager.isGrounded = true;
+            GameManager.jumpCnt = 0;
+            Debug.Log("땅에 착지");
         }
     }
 
@@ -19,6 +21,7 @@ public class CollisionHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             GameManager.isGrounded = false;
+            Debug.Log("점프");
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,7 +46,8 @@ public class CollisionHandler : MonoBehaviour
             GameManager.score += 10;
             Debug.Log("동화 획득");
             Debug.Log(GameManager.score);
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            //Destroy(collision.gameObject);
             
         }
         else if (collision.gameObject.CompareTag("GoldCoin"))
@@ -51,7 +55,8 @@ public class CollisionHandler : MonoBehaviour
             GameManager.score += 100;
             Debug.Log("금화 획득");
             Debug.Log(GameManager.score);
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            //Destroy(collision.gameObject);
         }
     }
     
