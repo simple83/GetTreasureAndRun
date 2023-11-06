@@ -930,6 +930,7 @@ GameObject:
   - component: {fileID: 285329963}
   - component: {fileID: 285329962}
   - component: {fileID: 285329961}
+  - component: {fileID: 285329965}
   m_Layer: 5
   m_Name: JumpBtn
   m_TagString: Untagged
@@ -1013,19 +1014,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 285329963}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 755977391}
-        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
-        m_MethodName: JumpBtn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &285329963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,6 +1053,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285329959}
   m_CullTransparentMesh: 1
+--- !u!114 &285329965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285329959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 755977391}
+          m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+          m_MethodName: JumpBtn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &317460844
 GameObject:
   m_ObjectHideFlags: 0
