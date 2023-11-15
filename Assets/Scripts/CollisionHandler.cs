@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
+    Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // 바닥에 닿았을 때
@@ -11,6 +17,7 @@ public class CollisionHandler : MonoBehaviour
         {
             GameManager.isGrounded = true;
             GameManager.jumpCnt = 0;
+            animator.SetBool("isJump", !GameManager.isGrounded);
             Debug.Log("땅에 착지");
         }
     }
@@ -21,6 +28,7 @@ public class CollisionHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             GameManager.isGrounded = false;
+            animator.SetBool("isJump", !GameManager.isGrounded);
             Debug.Log("점프");
         }
     }
