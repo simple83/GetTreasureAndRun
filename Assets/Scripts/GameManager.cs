@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public static float gameSpeed = 10f;
     public static float jumpForce = 10f;
     public static int jumpCnt = 0;
-    public static int playerLife = 99;
+    public static int playerLife = 999;
     public static int score = 0;
 
     private void Awake()

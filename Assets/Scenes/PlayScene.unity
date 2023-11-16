@@ -438,10 +438,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstaclePool: []
   Obstacles:
-  - {fileID: 8376561329914218807, guid: b65fedb2539792847a2573bcf2a1522b, type: 3}
-  - {fileID: 620734561243864357, guid: 073559ad792cb5847ba3ce6149050f8a, type: 3}
+  - {fileID: 5322091798346389273, guid: adafc0e3579278b4ab49c68fb391f16a, type: 3}
   obsCnt: 3
-  spawnTime: 1
+  spawnTime: 1.5
 --- !u!4 &73615438
 Transform:
   m_ObjectHideFlags: 0
