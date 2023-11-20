@@ -5,10 +5,13 @@ using UnityEngine;
 public class CollisionHandler : MonoBehaviour
 {
     Animator animator;
+    private SpriteRenderer player_spriteRenderer;
+    private float player_invincibility_delay = 2f;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        player_spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -36,6 +39,8 @@ public class CollisionHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("JumpObstacle"))
         {
             GameManager.playerLife -= 1;
+            PlayerInvincibility();
+            PlayerFlincker();
         }
         // 슬라이드 장애물 충돌
         else if (collision.gameObject.CompareTag("SlideObstacle"))
@@ -43,6 +48,8 @@ public class CollisionHandler : MonoBehaviour
             if(GameManager.isSliding == false)
             {
                 GameManager.playerLife -= 1;
+                PlayerInvincibility();
+                PlayerFlincker();
             }
         }
         else if(collision.gameObject.CompareTag("BronzeCoin"))
@@ -61,5 +68,51 @@ public class CollisionHandler : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
     }
-    
+
+    //충돌시 캐릭터 무적
+    private void PlayerInvincibility()
+    {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Obstacle"), LayerMask.NameToLayer("Player"), true);
+        Debug.Log("충돌");
+        StartCoroutine("PlayerInvincibilityTime");
+    }
+
+    //충돌시 캐릭터 무적 시간
+    IEnumerator PlayerInvincibilityTime()
+    {
+        yield return new WaitForSeconds(player_invincibility_delay);
+        Debug.Log("무적2초");
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Obstacle"), LayerMask.NameToLayer("Player"), false);
+    }
+
+    //충돌시 깜빡임효과
+    private void PlayerFlincker()
+    {
+
+        StartCoroutine("Flincker", player_spriteRenderer.color);
+
+    }
+    IEnumerator Flincker(Color c)
+    {
+        for (float sprite_alpha = 1; sprite_alpha == 0; sprite_alpha -= 0.1f)
+        {
+            c = new Color(1, 1, 1, sprite_alpha);
+            StartCoroutine("DelayFlincker");
+            Debug.Log("실험");
+        }
+
+        for (float sprite_alpha = 0; sprite_alpha > 1; sprite_alpha += 0.1f)
+        {
+            c = new Color(1, 1, 1, sprite_alpha);
+            StartCoroutine("DelayFlincker");
+        }
+        yield return null;
+    }
+
+    IEnumerator DelayFlincker()
+    {
+        yield return new WaitForSeconds(0.1f);
+    }
+
+
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1027056125890356349}
   - component: {fileID: 1027056125890356346}
   - component: {fileID: 1027056125890356347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DoubleJumpObstacle
   m_TagString: SlideObstacle
   m_Icon: {fileID: 0}
