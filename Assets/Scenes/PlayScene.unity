@@ -440,7 +440,7 @@ MonoBehaviour:
   Obstacles:
   - {fileID: 5322091798346389273, guid: adafc0e3579278b4ab49c68fb391f16a, type: 3}
   obsCnt: 3
-  spawnTime: 1.5
+  spawnTime: 5
 --- !u!4 &73615438
 Transform:
   m_ObjectHideFlags: 0
@@ -2211,7 +2211,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.37660146, y: 1.6095066}
+  m_Offset: {x: 0.6, y: 1.6095066}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -2222,7 +2222,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3942275, y: 2.9846835}
+  m_Size: {x: 1.4, y: 2.9}
   m_EdgeRadius: 0
 --- !u!212 &883431985
 SpriteRenderer:
@@ -2284,7 +2284,7 @@ Transform:
   m_GameObject: {fileID: 883431982}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.17, y: -3.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4

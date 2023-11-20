@@ -10,6 +10,7 @@ TagManager:
   - SlideObstacle
   - BronzeCoin
   - GoldCoin
+  - Hole
   layers:
   - Default
   - TransparentFX

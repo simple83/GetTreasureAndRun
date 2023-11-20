@@ -119,13 +119,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseJump
       objectReference: {fileID: 0}
+    - target: {fileID: 1269669186568696675, guid: b9284e0e17baf514b84e1565831fb84c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8447571054788108276, guid: b9284e0e17baf514b84e1565831fb84c, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8447571054788108276, guid: b9284e0e17baf514b84e1565831fb84c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8447571054788108276, guid: b9284e0e17baf514b84e1565831fb84c, type: 3}
       propertyPath: m_LocalPosition.y

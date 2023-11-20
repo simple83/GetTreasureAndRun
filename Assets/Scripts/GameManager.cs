@@ -10,10 +10,10 @@ public class GameManager : MonoBehaviour
 
     public static bool isGrounded = true;
     public static bool isSliding = false;
-    public static float gameSpeed = 10f;
-    public static float jumpForce = 10f;
+    public static float gameSpeed = 5f;
+    public static float jumpForce = 12f;
     public static int jumpCnt = 0;
-    public static int playerLife = 999;
+    public static int playerLife = 3;
     public static int score = 0;
 
     private void Awake()

@@ -13,8 +13,8 @@ public class Init : MonoBehaviour
     public void GameInit()
     {
         GameManager.score = 0;
-        GameManager.playerLife = 3;
-        GameManager.gameSpeed = 10f;
+        GameManager.playerLife = 100;
+        GameManager.gameSpeed = 5f;
         Time.timeScale = 1;
     }
 }
