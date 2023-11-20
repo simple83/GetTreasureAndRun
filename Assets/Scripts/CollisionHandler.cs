@@ -16,9 +16,8 @@ public class CollisionHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             GameManager.isGrounded = true;
-            GameManager.jumpCnt = 0;
+            GameManager.jumpCnt = 0;                                // 점프 횟수 초기화
             animator.SetBool("isJump", !GameManager.isGrounded);
-            Debug.Log("땅에 착지");
         }
     }
 
@@ -28,25 +27,22 @@ public class CollisionHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             GameManager.isGrounded = false;
-            animator.SetBool("isJump", !GameManager.isGrounded);
-            Debug.Log("점프");
+            animator.SetBool("isJump", !GameManager.isGrounded);    // 점프 애니메이션 트리거 작동
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // 점프 장애물 충돌
         if (collision.gameObject.CompareTag("JumpObstacle"))
         {
             GameManager.playerLife -= 1;
-            Debug.Log("점프 장애물과 충돌ㅠㅠ");
-            Debug.Log(GameManager.playerLife);
         }
+        // 슬라이드 장애물 충돌
         else if (collision.gameObject.CompareTag("SlideObstacle"))
         {
             if(GameManager.isSliding == false)
             {
                 GameManager.playerLife -= 1;
-                Debug.Log("슬라이드 장애물과 충돌ㅠㅠ");
-                Debug.Log(GameManager.playerLife);
             }
         }
         else if(collision.gameObject.CompareTag("BronzeCoin"))
@@ -55,7 +51,6 @@ public class CollisionHandler : MonoBehaviour
             Debug.Log("동화 획득");
             Debug.Log(GameManager.score);
             collision.gameObject.SetActive(false);
-            //Destroy(collision.gameObject);
             
         }
         else if (collision.gameObject.CompareTag("GoldCoin"))
@@ -64,7 +59,6 @@ public class CollisionHandler : MonoBehaviour
             Debug.Log("금화 획득");
             Debug.Log(GameManager.score);
             collision.gameObject.SetActive(false);
-            //Destroy(collision.gameObject);
         }
     }
     
