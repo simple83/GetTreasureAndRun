@@ -1517,6 +1517,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &519525251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519525253}
+  - component: {fileID: 519525252}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &519525252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519525251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f7a2d868288b54db7d465302479f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &519525253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519525251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 572, y: 259.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &645551729
 GameObject:
   m_ObjectHideFlags: 0
@@ -2301,6 +2344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478b127df7dd5434392f5d686a42a49b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collideSoundclip: {fileID: 8300000, guid: 9fddb0c88ce807348afc9b28368d466e, type: 3}
+  coinSoundclip: {fileID: 8300000, guid: 77737e1c1f3325d49899aa7b35ed2abb, type: 3}
 --- !u!114 &883431988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2313,6 +2358,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe5b0b8bf77e8e469e8c3819a9d1c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundclip:
+  - {fileID: 8300000, guid: 9f9a5c8501810274b9d19789ff6cfdd3, type: 3}
+  - {fileID: 8300000, guid: 919b9d32b3a45d14aa7c61b71c88e69b, type: 3}
+  - {fileID: 8300000, guid: 54ff70f1a18098549816adb2e20d948f, type: 3}
+  - {fileID: 8300000, guid: 79a218b9e650b7f4188a3fb6b41396b7, type: 3}
+  slideDownSoundclip: {fileID: 8300000, guid: c8b558a7dcf9f9a469cae6f89fac5a59, type: 3}
 --- !u!95 &883431989
 Animator:
   serializedVersion: 5
@@ -2368,8 +2419,10 @@ MonoBehaviour:
   - {fileID: 1703375054}
   runningTime:
   - 0
-  - 15
-  - 30
+  - 22
+  - 33
+  BGM:
+  - {fileID: 8300000, guid: 531782259c83af94ea0ee78d8c692478, type: 3}
 --- !u!4 &1004910110
 Transform:
   m_ObjectHideFlags: 0
@@ -3054,133 +3107,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1410744052
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1410744054}
-  - component: {fileID: 1410744053}
-  m_Layer: 0
-  m_Name: Audio Source
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1410744053
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410744052}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &1410744054
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410744052}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 572, y: 259.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1460446260
 GameObject:
   m_ObjectHideFlags: 0
@@ -4312,7 +4238,7 @@ MonoBehaviour:
   - {fileID: 8078826624827390898, guid: 81180e6242a792c4a89b1b8d24b1f97a, type: 3}
   numOfObstacles: 10
   obsCnt: 1
-  spawnTime: 2.5
+  spawnTime: 3
 --- !u!4 &1703375056
 Transform:
   m_ObjectHideFlags: 0
@@ -4583,7 +4509,7 @@ MonoBehaviour:
   - {fileID: 8078826624827390898, guid: 81180e6242a792c4a89b1b8d24b1f97a, type: 3}
   numOfObstacles: 5
   obsCnt: 1
-  spawnTime: 3
+  spawnTime: 4
 --- !u!4 &1791908638
 Transform:
   m_ObjectHideFlags: 0
