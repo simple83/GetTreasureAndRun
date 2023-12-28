@@ -2,9 +2,16 @@
 
 public class PlayerController : MonoBehaviour
 {
+    Animator animator;
     public AudioClip[] jumpSoundclip;
     public AudioClip slideDownSoundclip;
     int jumpSoundindex = 0;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     public void Jump()
     {
         if ((GameManager.isGrounded && GameManager.jumpCnt < 2) || (!GameManager.isGrounded && GameManager.jumpCnt<2))
@@ -26,6 +33,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.isGrounded)
         {
             GameManager.isSliding = true;
+            animator.SetBool("isSlide", GameManager.isSliding);
             SoundManager.instance.SFXPlay("slide Down", slideDownSoundclip);
             Debug.Log("슬라이드 중!");
         }
@@ -35,6 +43,7 @@ public class PlayerController : MonoBehaviour
         if(GameManager.isSliding == true)
         {
             GameManager.isSliding = false;
+            animator.SetBool("isSlide", GameManager.isSliding);
             SoundManager.instance.StopSFX("slide Down");
             Debug.Log("슬라이드 끝!");
         }    
