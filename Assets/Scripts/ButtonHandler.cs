@@ -62,4 +62,25 @@ public class ButtonHandler : MonoBehaviour
             Debug.Log("플레이어 오브젝트가 NULL입니다.");
         }
     }
+
+     public void PauseBtn()
+    {
+        Time.timeScale = 0f; 
+    }
+
+    public void ContinueBtn()
+    {
+        Time.timeScale = 1f; 
+        
+    }
+
+    public void RestartBtn()
+    {
+        SceneManager.LoadScene("PlayScene");
+    }
+
+    public void MainMenuBtn()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
 }
