@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     Animator animator;
-    private SpriteRenderer player_spriteRenderer;
+    public SpriteRenderer player_spriteRenderer;
     private float player_invincibility_delay = 2f;
     public AudioClip collideSoundclip;
     public AudioClip coinSoundclip;
@@ -41,22 +41,22 @@ public class CollisionHandler : MonoBehaviour
         // 점프 장애물 충돌
         if (collision.gameObject.CompareTag("JumpObstacle"))
         {
+            StartCoroutine("PlayerFlincker");
             SoundManager.instance.SFXPlay("collide", collideSoundclip);
             GameManager.playerLife -= 1;
             if(GameManager.playerLife <= 0) { SceneManager.LoadScene(0); }
             PlayerInvincibility();
-            PlayerFlincker();
         }
         // 슬라이드 장애물 충돌
         else if (collision.gameObject.CompareTag("SlideObstacle"))
         {
             if(GameManager.isSliding == false)
             {
+                StartCoroutine("PlayerFlincker");
                 SoundManager.instance.SFXPlay("collide", collideSoundclip);
                 GameManager.playerLife -= 1;
                 if (GameManager.playerLife <= 0) { SceneManager.LoadScene(0); }
                 PlayerInvincibility();
-                PlayerFlincker();
             }
         }
         else if(collision.gameObject.CompareTag("BronzeCoin"))
@@ -82,7 +82,7 @@ public class CollisionHandler : MonoBehaviour
     private void PlayerInvincibility()
     {
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Obstacle"), LayerMask.NameToLayer("Player"), true);
-        Debug.Log("충돌");
+        Debug.Log("충돌, 무적적용");
         StartCoroutine("PlayerInvincibilityTime");
     }
 
@@ -90,37 +90,22 @@ public class CollisionHandler : MonoBehaviour
     IEnumerator PlayerInvincibilityTime()
     {
         yield return new WaitForSeconds(player_invincibility_delay);
-        Debug.Log("무적2초");
+        Debug.Log("무적종료");
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Obstacle"), LayerMask.NameToLayer("Player"), false);
     }
 
     //충돌시 깜빡임효과
-    private void PlayerFlincker()
+    IEnumerator PlayerFlincker()
     {
-
-        StartCoroutine("Flincker", player_spriteRenderer.color);
-
-    }
-    IEnumerator Flincker(Color c)
-    {
-        for (float sprite_alpha = 1; sprite_alpha == 0; sprite_alpha -= 0.1f)
+        int count = 0;
+        while(count < 5)
         {
-            c = new Color(1, 1, 1, sprite_alpha);
-            StartCoroutine("DelayFlincker");
-            Debug.Log("실험");
+            player_spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+            yield return new WaitForSeconds(0.2f);
+            player_spriteRenderer.color = new Color(1, 1, 1, 1);
+            yield return new WaitForSeconds(0.2f);
+            count++;
         }
-
-        for (float sprite_alpha = 0; sprite_alpha > 1; sprite_alpha += 0.1f)
-        {
-            c = new Color(1, 1, 1, sprite_alpha);
-            StartCoroutine("DelayFlincker");
-        }
-        yield return null;
-    }
-
-    IEnumerator DelayFlincker()
-    {
-        yield return new WaitForSeconds(0.1f);
     }
 
 
