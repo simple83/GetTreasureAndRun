@@ -3,7 +3,8 @@ guid: 478b127df7dd5434392f5d686a42a49b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - collideSoundclip: {fileID: 8300000, guid: 9fddb0c88ce807348afc9b28368d466e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

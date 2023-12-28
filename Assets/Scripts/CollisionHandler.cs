@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
     Animator animator;
     private SpriteRenderer player_spriteRenderer;
     private float player_invincibility_delay = 2f;
+    public AudioClip collideSoundclip;
+    public AudioClip coinSoundclip;
 
     private void Awake()
     {
@@ -38,7 +41,9 @@ public class CollisionHandler : MonoBehaviour
         // 점프 장애물 충돌
         if (collision.gameObject.CompareTag("JumpObstacle"))
         {
+            SoundManager.instance.SFXPlay("collide", collideSoundclip);
             GameManager.playerLife -= 1;
+            if(GameManager.playerLife <= 0) { SceneManager.LoadScene(0); }
             PlayerInvincibility();
             PlayerFlincker();
         }
@@ -47,7 +52,9 @@ public class CollisionHandler : MonoBehaviour
         {
             if(GameManager.isSliding == false)
             {
+                SoundManager.instance.SFXPlay("collide", collideSoundclip);
                 GameManager.playerLife -= 1;
+                if (GameManager.playerLife <= 0) { SceneManager.LoadScene(0); }
                 PlayerInvincibility();
                 PlayerFlincker();
             }
@@ -55,6 +62,7 @@ public class CollisionHandler : MonoBehaviour
         else if(collision.gameObject.CompareTag("BronzeCoin"))
         {
             GameManager.score += 10;
+            SoundManager.instance.SFXPlay("coin", coinSoundclip);
             Debug.Log("동화 획득");
             Debug.Log(GameManager.score);
             collision.gameObject.SetActive(false);
@@ -63,6 +71,7 @@ public class CollisionHandler : MonoBehaviour
         else if (collision.gameObject.CompareTag("GoldCoin"))
         {
             GameManager.score += 100;
+            SoundManager.instance.SFXPlay("coin", coinSoundclip);
             Debug.Log("금화 획득");
             Debug.Log(GameManager.score);
             collision.gameObject.SetActive(false);
