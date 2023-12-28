@@ -6,6 +6,7 @@ public class Stage_1_RespawnHandler : MonoBehaviour
 {
     public List<GameObject> ObstaclePool = new List<GameObject>();
     public GameObject[] Obstacles;
+    public int numOfObstacles;
     public int obsCnt = 1;
     public float spawnTime = 1f;
     void Awake()
@@ -30,7 +31,7 @@ public class Stage_1_RespawnHandler : MonoBehaviour
     }
     IEnumerator CreateObs()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < numOfObstacles; i++)
         {
             ObstaclePool[i].SetActive(true);       // 순서대로 장애물 세트를 활성화
             yield return new WaitForSeconds(spawnTime);         // 설정한 생성 시간마다 반복

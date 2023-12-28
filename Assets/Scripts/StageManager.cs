@@ -16,7 +16,7 @@ public class StageManager : MonoBehaviour
     {
         if (Stages[stageNumber] != null)
         {
-
+            Debug.Log("다음 스테이지로 이동.");
             Stages[stageNumber].SetActive(true);
         }
         else
