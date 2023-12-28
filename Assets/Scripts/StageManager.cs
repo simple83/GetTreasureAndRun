@@ -6,10 +6,12 @@ public class StageManager : MonoBehaviour
 {
     public GameObject[] Stages; //스테이지별 장애물 스포너 배열 0번은 비울것 1번이 1스테이지
     public float[] runningTime; //스테이지 러닝타임, 0번은 비울것 1번이 1스테이지
+    public AudioClip[] BGM;
 
     private void Start()
     {
         StartCoroutine(GameStart());
+        SoundManager.instance.SFXPlay("stage1,2", BGM[0]);
     }
 
     IEnumerator Stage(int stageNumber)
