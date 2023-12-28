@@ -11,6 +11,8 @@ public class BackGround : MonoBehaviour
     private float distance;
 
     private Material[] materials;
+
+    [SerializeField]
     private float[] layerMoveSpeed;
 
     [SerializeField]
@@ -52,6 +54,7 @@ public class BackGround : MonoBehaviour
         for(int i = 0; i < count; ++i)
         {
             layerMoveSpeed[i] = 1 - (backgrounds[i].transform.position.z - cameraTransform.position.z) / farthestBackDistance;
+            layerMoveSpeed[i] += 0.05f;
         }
     }
     private void LateUpdate()
